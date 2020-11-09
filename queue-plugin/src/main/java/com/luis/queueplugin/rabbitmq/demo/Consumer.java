@@ -8,6 +8,7 @@ import java.util.concurrent.TimeoutException;
 /**
  * @author luis
  * @date 2020/11/8
+ * https://www.cnblogs.com/chy18883701161/p/12501428.html
  */
 public class Consumer {
     private final static String QUEUE_NAME = "my_queue"; //队列名称
