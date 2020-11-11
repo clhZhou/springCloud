@@ -1,4 +1,4 @@
-package com.luis.io.nio;
+package com.luis.io.io.bio;
 
 import java.io.IOException;
 import java.io.OutputStream;
