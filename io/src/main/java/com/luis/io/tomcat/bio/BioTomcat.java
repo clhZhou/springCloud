@@ -26,6 +26,9 @@ public class BioTomcat {
     //6.调用实例化的service() 方法，执行具体的逻辑doGet(),doPost()
     //7.Request、Response是对IO的封装
 
+    //tomcat源码，全局搜索ServerSocket，是入口
+    //Netty封装了Nio，出现了boss线程与worker线程
+
     private int port = 8080;
     private ServerSocket serverSocket;
     private Map<String, BioServlet> servletMap = new HashMap<String, BioServlet>();
