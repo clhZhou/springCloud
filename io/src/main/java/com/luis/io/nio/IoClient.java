@@ -1,9 +1,8 @@
-package com.luis.io;
+package com.luis.io.nio;
 
 import java.io.IOException;
 import java.io.OutputStream;
 import java.net.Socket;
-import java.util.UUID;
 
 /**
  * @author luis
