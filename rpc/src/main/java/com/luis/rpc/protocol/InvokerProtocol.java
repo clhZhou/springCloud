@@ -15,7 +15,7 @@ public class InvokerProtocol implements Serializable {
     //方法名
     private String methodName;
     //形参列表
-    private Class<?> [] prames;
+    private Class<?> [] parames;
     //实参列表
     private Object[] values;
 
@@ -35,12 +35,12 @@ public class InvokerProtocol implements Serializable {
         this.methodName = methodName;
     }
 
-    public Class<?>[] getPrames() {
-        return prames;
+    public Class<?>[] getParames() {
+        return parames;
     }
 
-    public void setPrames(Class<?>[] prames) {
-        this.prames = prames;
+    public void setParames(Class<?>[] parames) {
+        this.parames = parames;
     }
 
     public Object[] getValues() {

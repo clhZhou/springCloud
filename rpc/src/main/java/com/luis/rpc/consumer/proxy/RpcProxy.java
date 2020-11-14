@@ -55,7 +55,7 @@ public class RpcProxy {
             InvokerProtocol invokerProtocol = new InvokerProtocol();
             invokerProtocol.setClassName(this.clazz.getName());
             invokerProtocol.setMethodName(method.getName());
-            invokerProtocol.setPrames(method.getParameterTypes());
+            invokerProtocol.setParames(method.getParameterTypes());
             invokerProtocol.setValues(args);
             //发送网络请求
             EventLoopGroup workGroup = new NioEventLoopGroup();
@@ -105,20 +105,20 @@ public class RpcProxy {
                                 channelPipeline.addLast(proxyHandler);
                             }
                         });
-                ChannelFuture future = client.connect("localhost", 8080);
-                future.channel().writeAndFlush(invokerProtocol).sync();
+                ChannelFuture future = client.connect("localhost", 8080).sync();
+//                future.channel().writeAndFlush(invokerProtocol).sync();
 
-//                future.channel().writeAndFlush(invokerProtocol).sync().addListener(new GenericFutureListener<Future<? super Void>>() {
-//                    @Override
-//                    public void operationComplete(Future<? super Void> future) throws Exception {
-//                        if(future.isSuccess()){
-//                            System.out.println("数据写入成功！");
-//                        }else {
-//                            System.out.println("数据未能写入！");
-//                            future.cause().printStackTrace();
-//                        }
-//                    }
-//                });
+                future.channel().writeAndFlush(invokerProtocol).sync().addListener(new GenericFutureListener<Future<? super Void>>() {
+                    @Override
+                    public void operationComplete(Future<? super Void> future) throws Exception {
+                        if(future.isSuccess()){
+                            System.out.println("数据写入成功！");
+                        }else {
+                            System.out.println("数据未能写入！");
+                            future.cause().printStackTrace();
+                        }
+                    }
+                });
 
 //                future.channel().writeAndFlush(invokerProtocol).addListener(ChannelFutureListener.FIRE_EXCEPTION_ON_FAILURE);
 

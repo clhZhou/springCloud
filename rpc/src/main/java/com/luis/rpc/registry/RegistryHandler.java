@@ -89,7 +89,7 @@ public class RegistryHandler extends ChannelInboundHandlerAdapter {
         InvokerProtocol invokerProtocol = (InvokerProtocol) msg;
         if(registryMap.containsKey(invokerProtocol.getClassName())){
             Object service = registryMap.get(invokerProtocol.getClassName());
-            Method method = service.getClass().getMethod(invokerProtocol.getMethodName(),invokerProtocol.getPrames());
+            Method method = service.getClass().getMethod(invokerProtocol.getMethodName(),invokerProtocol.getParames());
             result = method.invoke(service,invokerProtocol.getValues());
         }
         ctx.write(result);

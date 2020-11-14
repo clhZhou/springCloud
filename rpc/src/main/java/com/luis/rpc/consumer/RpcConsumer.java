@@ -24,13 +24,13 @@ public class RpcConsumer {
 //        System.out.println(rpcHelloService.hello("luis"));
 
 
-        IRpcService rpcService = RpcProxy1.create(IRpcService.class);
+        IRpcService rpcService = RpcProxy.create(IRpcService.class);
         System.out.println(rpcService.add(8, 2));
         System.out.println(rpcService.sub(8, 2));
         System.out.println(rpcService.mult(8, 2));
         System.out.println(rpcService.div(8, 2));
 
-        IRpcHelloService rpcHelloService = RpcProxy1.create(IRpcHelloService.class);
+        IRpcHelloService rpcHelloService = RpcProxy.create(IRpcHelloService.class);
         System.out.println(rpcHelloService.hello("luis"));
     }
 

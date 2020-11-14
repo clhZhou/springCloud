@@ -67,7 +67,7 @@ public class RpcProxy1 {
 			msg.setClassName(this.clazz.getName());
 			msg.setMethodName(method.getName());
 			msg.setValues(args);
-			msg.setPrames(method.getParameterTypes());
+			msg.setParames(method.getParameterTypes());
 
 			final RpcProxyHandler consumerHandler = new RpcProxyHandler();
 			EventLoopGroup group = new NioEventLoopGroup();
