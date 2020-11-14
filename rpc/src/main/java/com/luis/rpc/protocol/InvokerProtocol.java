@@ -3,11 +3,13 @@ package com.luis.rpc.protocol;
 import lombok.Data;
 
 import java.io.Serializable;
+import java.util.Arrays;
 
 /**
  * @author luis
  * @date 2020/11/12
  */
+@Data
 public class InvokerProtocol implements Serializable {
 
     //服务名
@@ -19,35 +21,45 @@ public class InvokerProtocol implements Serializable {
     //实参列表
     private Object[] values;
 
-    public String getClassName() {
-        return className;
-    }
-
-    public void setClassName(String className) {
-        this.className = className;
-    }
-
-    public String getMethodName() {
-        return methodName;
-    }
-
-    public void setMethodName(String methodName) {
-        this.methodName = methodName;
-    }
-
-    public Class<?>[] getParames() {
-        return parames;
-    }
-
-    public void setParames(Class<?>[] parames) {
-        this.parames = parames;
-    }
-
-    public Object[] getValues() {
-        return values;
-    }
-
-    public void setValues(Object[] values) {
-        this.values = values;
-    }
+//    public String getClassName() {
+//        return className;
+//    }
+//
+//    public void setClassName(String className) {
+//        this.className = className;
+//    }
+//
+//    public String getMethodName() {
+//        return methodName;
+//    }
+//
+//    public void setMethodName(String methodName) {
+//        this.methodName = methodName;
+//    }
+//
+//    public Class<?>[] getParames() {
+//        return parames;
+//    }
+//
+//    public void setParames(Class<?>[] parames) {
+//        this.parames = parames;
+//    }
+//
+//    public Object[] getValues() {
+//        return values;
+//    }
+//
+//    public void setValues(Object[] values) {
+//        this.values = values;
+//    }
+//
+//    @Override
+//    public String toString() {
+//        return "InvokerProtocol{" +
+//                "className='" + className + '\'' +
+//                ", methodName='" + methodName + '\'' +
+//                ", parames=" + Arrays.toString(parames) +
+//                ", values=" + Arrays.toString(values) +
+//                '}';
+//    }
 }

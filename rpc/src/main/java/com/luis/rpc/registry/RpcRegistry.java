@@ -46,7 +46,7 @@ public class RpcRegistry {
                             //处理逻辑的封装，有一定的执行顺序
                             //对自定义协议内容要进行编、解码；类似于解析HTTP协议
                             //编码
-                            channelPipeline.addLast(new LengthFieldBasedFrameDecoder(Integer.MAX_VALUE, 0, 4, 0, 0));
+                            channelPipeline.addLast(new LengthFieldBasedFrameDecoder(Integer.MAX_VALUE, 0, 4, 0, 4));
                             //解码
                             channelPipeline.addLast(new LengthFieldPrepender(4));
                             //实参处理
