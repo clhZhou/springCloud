@@ -45,7 +45,7 @@ public class RpcRegistry {
                             ChannelPipeline channelPipeline = socketChannel.pipeline();
                             //处理逻辑的封装，有一定的执行顺序
                             //对自定义协议内容要进行编、解码；类似于解析HTTP协议
-                            //编码
+                            //编码，注意LengthFieldBasedFrameDecoder的参数（Integer.MAX_VALUE,0,4,0,4）
                             channelPipeline.addLast(new LengthFieldBasedFrameDecoder(Integer.MAX_VALUE, 0, 4, 0, 4));
                             //解码
                             channelPipeline.addLast(new LengthFieldPrepender(4));
