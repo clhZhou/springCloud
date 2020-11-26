@@ -2,3 +2,16 @@ server:
   port: 8080
   servlet:
     context-path: /springCloud
+
+app:
+  datasource:
+    db1:
+      url: jdbc:mysql://127.0.0.1:3306/db1?useUnicode=true&characterEncoding=utf8
+      username: root
+      password: '123qweasdzxc'
+      driver-class-name: com.mysql.jdbc.Driver
+    db2:
+      url: jdbc:mysql://127.0.0.1:3306/db2?useUnicode=true&characterEncoding=utf8
+      username: root
+      password: '123qweasdzxc'
+      driver-class-name: com.mysql.jdbc.Driver
