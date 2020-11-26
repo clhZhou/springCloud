@@ -22,14 +22,21 @@ class CacheApplicationTests {
         redisTemplate.setDefaultSerializer(stringRedisSerializer);
         redisTemplate.setKeySerializer(stringRedisSerializer);
         redisTemplate.setValueSerializer(stringRedisSerializer);
-//        redisTemplate.setEnableDefaultSerializer(stringRedisSerializer);
         redisTemplate.setHashKeySerializer(stringRedisSerializer);
         redisTemplate.setHashValueSerializer(stringRedisSerializer);
-        System.out.println(redisTemplate.getStringSerializer());
-
+//        System.out.println(redisTemplate.getStringSerializer());
 //        redisTemplate.opsForValue().set("name","周瑞");
-        System.out.println(redisTemplate.opsForValue().get("name"));
-        redisTemplate.opsForValue().set("primaryKey", UUID.randomUUID().toString());
+//        System.out.println(redisTemplate.opsForValue().get("name"));
+//        redisTemplate.opsForValue().set("primaryKey", UUID.randomUUID().toString());
+        redisTemplate.opsForValue().set("i","10");
+        System.out.println(redisTemplate.opsForValue().get("i"));
+        redisTemplate.opsForValue().increment("i",1);
+        System.out.println(redisTemplate.opsForValue().get("i"));
+//        redisTemplate.opsForValue().increment("i",1.1);
+//        System.out.println(redisTemplate.opsForValue().get("i"));
+        redisTemplate.opsForValue().decrement("i",1);
+        System.out.println(redisTemplate.opsForValue().get("i"));
+
 
     }
 
