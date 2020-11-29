@@ -21,7 +21,7 @@ public class WatchDemo {
                 .connectString("192.168.0.200:2181")
                 .sessionTimeoutMs(5000)
                 //重试策略
-                //衰减重试、重试一次 4中重试策略
+                //衰减重试、重试一次 4种重试策略
                 .retryPolicy(new ExponentialBackoffRetry(1000,3))
                 .build();
         curatorFramework.start();
