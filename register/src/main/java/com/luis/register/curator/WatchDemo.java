@@ -27,7 +27,8 @@ public class WatchDemo {
         curatorFramework.start();
 
 //        addListenerWithNode(curatorFramework);
-        addListenerWithChild(curatorFramework);
+//        addListenerWithChild(curatorFramework);
+        addListerWithTree(curatorFramework);
         System.in.read();
 
     }
@@ -43,7 +44,7 @@ public class WatchDemo {
             @Override
             public void nodeChanged() throws Exception {
                 System.out.println("receive Node Changed");
-                System.out.println(nodeCache.getCurrentData().getPath() +"----"+new String(nodeCache.getCurrentData().getData()));
+                System.out.println(nodeCache.getCurrentData().getPath() +"->>>"+new String(nodeCache.getCurrentData().getData()));
             }
         };
         nodeCache.getListenable().addListener(nodeCacheListener);
@@ -67,5 +68,23 @@ public class WatchDemo {
         };
         nodeCache.getListenable().addListener(nodeCacheListener);
         nodeCache.start(PathChildrenCache.StartMode.NORMAL);
+    }
+
+    /**
+     * 节点变更触发事件综合（包含当前节点、子节点）
+     * @param curatorFramework
+     * @throws Exception
+     */
+    private static void addListerWithTree(CuratorFramework curatorFramework) throws Exception {
+        TreeCache treeCache = new TreeCache(curatorFramework,"/watch");
+        TreeCacheListener treeCacheListener = new TreeCacheListener() {
+            @Override
+            public void childEvent(CuratorFramework curatorFramework, TreeCacheEvent treeCacheEvent) throws Exception {
+                System.out.println("tree Node Changed");
+                System.out.println(treeCacheEvent.getType() + "->>>" + new String(treeCacheEvent.getData().getPath()));
+            }
+        };
+        treeCache.getListenable().addListener(treeCacheListener);
+        treeCache.start();
     }
 }
