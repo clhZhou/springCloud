@@ -22,6 +22,7 @@
         <module>queue-plugin</module>
         <module>io</module>
         <module>rpc</module>
+        <module>register</module>
     </modules>
     <properties>
         <project.build.sourceEncoding>utf-8</project.build.sourceEncoding>
