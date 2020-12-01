@@ -7,6 +7,7 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
 
 import java.util.UUID;
+import java.util.concurrent.TimeUnit;
 
 @SpringBootTest
 class CacheApplicationTests {
@@ -36,6 +37,24 @@ class CacheApplicationTests {
 //        System.out.println(redisTemplate.opsForValue().get("i"));
         redisTemplate.opsForValue().decrement("i",1);
         System.out.println(redisTemplate.opsForValue().get("i"));
+
+
+    }
+
+    @Test
+    void incr(){
+        StringRedisSerializer stringRedisSerializer = new StringRedisSerializer();
+        redisTemplate.setStringSerializer(stringRedisSerializer);
+        redisTemplate.setDefaultSerializer(stringRedisSerializer);
+        redisTemplate.setKeySerializer(stringRedisSerializer);
+        redisTemplate.setValueSerializer(stringRedisSerializer);
+        redisTemplate.setHashKeySerializer(stringRedisSerializer);
+        redisTemplate.setHashValueSerializer(stringRedisSerializer);
+
+        long ttl = 100;
+        for (int i = 0; i < 10; i++) {
+            redisTemplate.opsForValue().setIfAbsent("timeKey","value"+i,ttl, TimeUnit.SECONDS);
+        }
 
 
     }
