@@ -21,8 +21,12 @@ public class JedisTests {
         Jedis jedis = new Jedis("192.168.0.200",6379);
         int num = 15;
         jedis.select(num);
-        jedis.set("key"+num,"value"+num);
+//        jedis.set("key"+num,"0");
+        jedis.incr("key15");
 
+        if(jedis.get("key"+num).equals("5")){
+             jedis.set("key15","0");
+        }
         System.out.println(jedis.get("key"+num));
     }
 }
