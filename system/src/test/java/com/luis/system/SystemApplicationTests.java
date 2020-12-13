@@ -56,4 +56,26 @@ class SystemApplicationTests {
         }
     }
 
+
+    static ThreadLocal<Integer> local = new ThreadLocal<Integer>(){
+        protected Integer initialValue(){
+            return 0;
+        }
+    };
+
+    @Test
+    public void threadLocalTest(){
+        Thread[] threads = new Thread[5];
+        for (int i = 0; i < 5; i++) {
+            threads[i] = new Thread(()->{
+               int num = local.get();
+               local.set(num+=5);
+                System.out.println(Thread.currentThread().getName()+"---"+num);
+            });
+        }
+        for (int i = 0; i < 5; i++) {
+            threads[i].start();
+        }
+    }
+
 }
