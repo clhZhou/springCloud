@@ -78,4 +78,26 @@ class SystemApplicationTests {
         }
     }
 
+
+    @Test
+    public boolean getX(int i){
+        boolean flag = false;
+        if(i>1){
+            while(i%3==0){
+                i=i/3;
+                if(i<3){
+                    break;
+                }
+            }
+        }
+        if(i==1){
+            flag = true;
+        }
+        return flag;
+    }
+    @Test
+    public void test(){
+        System.out.println(getX(6));
+    }
+
 }
